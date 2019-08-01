@@ -44,13 +44,12 @@ fn main() {
         "tableflip" => { tweet = format!("{} (╯°□°)╯︵ ┻━┻︎", &tweet); }
         "tableback" | "puttableback" => { tweet = format!("{},", "┬─┬ノ( º _ ºノ)") }
         "smallcaps" => {
-            let mut newTweet = String::from("");
+            let mut new_tweet = String::from("");
             for mut chirp in tweet.chars() {
-                chirp = toSmallCaps(chirp);
-                newTweet.push(chirp);
+                chirp = to_small_caps(chirp);
+                new_tweet.push(chirp);
             }
-            println!("{}", newTweet);
-            tweet = newTweet;
+            tweet = new_tweet;
         }
         &_ => {
             println!("No valid decoration type specified");
@@ -61,8 +60,8 @@ fn main() {
     println!("{} copied to clipboard!", &tweet);
 }
 
-fn toSmallCaps (original_letter:char) -> char{
-    let mut new_letter= original_letter;
+fn to_small_caps (original_letter:char) -> char{
+    let new_letter;
     match original_letter{
         'A' | 'a' => {new_letter= 'ᴀ'}
         'B' | 'b' => {new_letter= 'ʙ'}
