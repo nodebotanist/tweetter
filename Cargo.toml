@@ -4,7 +4,10 @@ version = "0.1.0"
 authors = ["nodebotanist <the@nodebotani.st>"]
 edition = "2018"
 repository = "https://github.com/nodebotanist/tweeter"
+description = "A CLI tool that decorates potential tweet text then copies it to the clipboard"
+license = "MIT"
 
 [dependencies]
 clap = "~2.33.0"
 clipboard = "0.5.0"
+regex = "1.2.0"
