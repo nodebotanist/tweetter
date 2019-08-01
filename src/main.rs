@@ -15,13 +15,13 @@ fn main() {
             .short("t")
             .long("tweet")
             .required(true)
-            .index(1))
+            .index(2))
         .arg(Arg::with_name("decoration_type")
             .help("tells the cli what decoration you want on your tweet")
             .short("d")
             .long("decoration")
             .required(true)
-            .index(2))
+            .index(1))
         .get_matches();
 
     let space_regex = Regex::new(r"\s").unwrap();
