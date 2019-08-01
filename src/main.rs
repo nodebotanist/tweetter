@@ -28,17 +28,22 @@ fn main() {
 
     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
     let mut tweet = String::from(matches.value_of("tweet_text").unwrap());
+    let decoration = matches.value_of("decoration_type").unwrap();
+
     println!("Original Tweet: {}", tweet);
 
-    if matches.value_of("decoration_type").unwrap() == "thisisfine" {
-        tweet = format!("🔥{}🔥", space_regex.replace_all(matches.value_of("tweet_text").unwrap(), "🔥"));
-        ctx.set_contents(format!("{}", &tweet)).unwrap();
-    } else if matches.value_of("decoration_type").unwrap() == "clap" {
-        tweet = format!("👏{}👏", space_regex.replace_all(matches.value_of("tweet_text").unwrap(), "👏"));
-        ctx.set_contents(format!("{}", &tweet)).unwrap();
-    } else {
-        println!("No subcommand entered!");
+    match decoration{
+        "thisisfine" => {
+            tweet = format!("🔥{}🔥", space_regex.replace_all(&tweet, "🔥"));
+        }
+        "clap" => {
+            tweet = format!("👏{}👏", space_regex.replace_all(&tweet, "👏"));   
+        }
+        &_ => {
+            println!("No valid decoration type specified")
+        }
     }
+    ctx.set_contents(format!("{}", &tweet)).unwrap();
 
     println!("{} copied to clipboard!", &tweet);
 
