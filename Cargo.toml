@@ -1,6 +1,6 @@
 [package]
 name = "tweetter"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["nodebotanist <the@nodebotani.st>"]
 edition = "2018"
 repository = "https://github.com/nodebotanist/tweeter"
