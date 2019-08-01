@@ -42,7 +42,7 @@ fn main() {
         "poo" | "shit-take" => { tweet = format!("💩{}💩", space_regex.replace_all(&tweet, "💩")); }
         "death" | "jolly-roger" => { tweet = format!("☠︎{}☠︎", space_regex.replace_all(&tweet, "☠︎"));  }
         "tableflip" => { tweet = format!("{} (╯°□°)╯︵ ┻━┻︎", &tweet); }
-        "tableback" | "puttableback" => { tweet = format!("{},", "┬─┬ノ( º _ ºノ)") }
+        "tableback" | "puttableback" => { tweet = format!("{}, ┬─┬ノ( º _ ºノ)", &tweet) }
         "smallcaps" => {
             let mut new_tweet = String::from("");
             for mut chirp in tweet.chars() {
