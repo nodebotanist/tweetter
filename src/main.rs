@@ -27,18 +27,19 @@ fn main() {
     let space_regex = Regex::new(r"\s").unwrap();
 
     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
-    let mut tweet = String::new();
+    let mut tweet = String::from(matches.value_of("tweet_text").unwrap());
+    println!("Original Tweet: {}", tweet);
 
     if matches.value_of("decoration_type").unwrap() == "thisisfine" {
         tweet = format!("🔥{}🔥", space_regex.replace_all(matches.value_of("tweet_text").unwrap(), "🔥"));
-        ctx.set_contents(format!("{}", tweet));
+        ctx.set_contents(format!("{}", &tweet)).unwrap();
     } else if matches.value_of("decoration_type").unwrap() == "clap" {
         tweet = format!("👏{}👏", space_regex.replace_all(matches.value_of("tweet_text").unwrap(), "👏"));
-        ctx.set_contents(format!("{}", tweet));
+        ctx.set_contents(format!("{}", &tweet)).unwrap();
     } else {
-        println!("No subcommand entered!")
+        println!("No subcommand entered!");
     }
-    
+
     println!("{} copied to clipboard!", &tweet);
 
 }
