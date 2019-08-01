@@ -33,10 +33,14 @@ fn main() {
     println!("Original Tweet: {}", tweet);
 
     match decoration{
-        "thisisfine" => { tweet = format!("🔥{}🔥", space_regex.replace_all(&tweet, "🔥")); }
+        "thisisfine" | "hot-take" | "fire "=> { tweet = format!("🔥{}🔥", space_regex.replace_all(&tweet, "🔥")); }
         "clap" => { tweet = format!("👏{}👏", space_regex.replace_all(&tweet, "👏")); }   
         "rainbow" =>{ tweet = format!("🌈{}🌈", space_regex.replace_all(&tweet, "🌈")); }
-        "sparkles" =>{ tweet = format!("✨{}✨", space_regex.replace_all(&tweet, "✨")); }
+        "sparkles" | "sparkle" =>{ tweet = format!("✨{}✨", space_regex.replace_all(&tweet, "✨")); }
+        "hairflip" => { tweet = format!("💁‍{}💁‍", space_regex.replace_all(&tweet, "💁‍")); }
+        "facepalm" => { tweet = format!("🤦‍{}🤦‍", space_regex.replace_all(&tweet, "🤦‍")); }
+        "poo" | "shit-take" => { tweet = format!("💩{}💩", space_regex.replace_all(&tweet, "💩")); }
+        "death" | "jolly-roger" => { tweet = format!("☠︎{}☠︎", space_regex.replace_all(&tweet, "☠︎"));  }
         &_ => {
             println!("No valid decoration type specified");
         }
