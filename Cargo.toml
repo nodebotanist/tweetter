@@ -1,5 +1,5 @@
 [package]
-name = "tweet-formatter"
+name = "tweetter"
 version = "0.1.0"
 authors = ["nodebotanist <the@nodebotani.st>"]
 edition = "2018"
