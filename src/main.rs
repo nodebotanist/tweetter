@@ -41,6 +41,17 @@ fn main() {
         "facepalm" => { tweet = format!("🤦‍{}🤦‍", space_regex.replace_all(&tweet, "🤦‍")); }
         "poo" | "shit-take" => { tweet = format!("💩{}💩", space_regex.replace_all(&tweet, "💩")); }
         "death" | "jolly-roger" => { tweet = format!("☠︎{}☠︎", space_regex.replace_all(&tweet, "☠︎"));  }
+        "tableflip" => { tweet = format!("{} (╯°□°)╯︵ ┻━┻︎", &tweet); }
+        "tableback" | "puttableback" => { tweet = format!("{},", "┬─┬ノ( º _ ºノ)") }
+        "smallcaps" => {
+            let mut newTweet = String::from("");
+            for mut chirp in tweet.chars() {
+                chirp = toSmallCaps(chirp);
+                newTweet.push(chirp);
+            }
+            println!("{}", newTweet);
+            tweet = newTweet;
+        }
         &_ => {
             println!("No valid decoration type specified");
         }
@@ -48,5 +59,38 @@ fn main() {
     ctx.set_contents(format!("{}", &tweet)).unwrap();
 
     println!("{} copied to clipboard!", &tweet);
+}
 
+fn toSmallCaps (original_letter:char) -> char{
+    let mut new_letter= original_letter;
+    match original_letter{
+        'A' | 'a' => {new_letter= 'ᴀ'}
+        'B' | 'b' => {new_letter= 'ʙ'}
+        'C' | 'c' => {new_letter= 'ᴄ'}
+        'D' | 'd' => {new_letter= 'ᴅ'}
+        'E' | 'e' => {new_letter= 'ᴇ'}
+        'F' | 'f' => {new_letter= 'ꜰ'}
+        'G' | 'g' => {new_letter= 'ɢ'}
+        'H' | 'h' => {new_letter= 'ʜ'}
+        'I' | 'i' => {new_letter= 'ɪ'}
+        'J' | 'j' => {new_letter= 'ᴊ'}
+        'K' | 'k' => {new_letter= 'ᴋ'}
+        'L' | 'l' => {new_letter= 'ʟ'}
+        'M' | 'm' => {new_letter= 'ᴍ'}
+        'N' | 'n' => {new_letter= 'ɴ'}
+        'O' | 'o' => {new_letter= 'ᴏ'}
+        'P' | 'p' => {new_letter= 'ᴘ'}
+        'Q' | 'q' => {new_letter= 'ꞯ'}
+        'R' | 'r' => {new_letter= 'ʀ'}
+        'S' | 's' => {new_letter= 'ꜱ'}
+        'T' | 't' => {new_letter= 'ᴛ'}
+        'U' | 'u' => {new_letter= 'ᴜ'}
+        'V' | 'v' => {new_letter= 'ᴠ'}
+        'W' | 'w' => {new_letter= 'ᴡ'}
+        'X' | 'x' => {new_letter= '–'}
+        'Y' | 'y' => {new_letter= 'ʏ'}
+        'Z' | 'z' => {new_letter= 'z'}
+        _ => {new_letter= original_letter}
+    }
+    return new_letter;
 }
